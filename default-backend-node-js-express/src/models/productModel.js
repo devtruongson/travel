@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     Product.init(
         {
             name: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT('long'),
                 allowNull: false,
             },
             description: {
-                type: DataTypes.TEXT,
+                type: DataTypes.TEXT('long'),
                 allowNull: false,
             },
             price: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             address: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT('long'),
                 allowNull: false,
             },
             roomType: {

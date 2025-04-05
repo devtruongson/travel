@@ -9,22 +9,24 @@ class userController {
             const user = await userController.findUserController(req.body.email);
 
             if (!user) {
-                return res.status(200).json({
+                return res.status(400).json({
                     msg: 'Tài khoản không tồn tại trong hệ thống!',
                     code: 1,
                     data: null,
                 });
             }
-            const isMatch = await comparePassword(req.body.password, user.password);
+            const isMatch = comparePassword(req.body.password, user.password);
 
             if (isMatch) {
+                console.log(user);
+                const { password, ...userWithoutPassword } = user.dataValues;
                 return res.status(200).json({
                     msg: 'Đăng nhập thành công!',
                     code: 0,
-                    data: user,
+                    data: userWithoutPassword,
                 });
             } else {
-                return res.status(200).json({
+                return res.status(400).json({
                     msg: 'Mật khẩu của bạn không chính xác!',
                     code: 1,
                     data: null,
@@ -41,7 +43,7 @@ class userController {
             const user = await userController.findUserController(req.body.email);
 
             if (user) {
-                return res.status(200).json({
+                return res.status(400).json({
                     msg: 'Tài khoản đã tồn tại trong hệ thống!',
                     code: 1,
                     data: null,
@@ -54,7 +56,7 @@ class userController {
                 password: passwordHash,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                role: ROLEUSER.USER,
+                role: 'user',
             });
 
             return res.status(200).json({

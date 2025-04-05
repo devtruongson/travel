@@ -10,16 +10,16 @@ module.exports = {
                 type: Sequelize.INTEGER,
             },
             name: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT('long'),
             },
             description: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT('long'), // Cập nhật kiểu dữ liệu này
             },
             price: {
                 type: Sequelize.DECIMAL(10, 2),
             },
             address: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT('long'),
             },
             roomType: {
                 type: Sequelize.STRING,
