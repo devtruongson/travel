@@ -108,6 +108,45 @@ class productController {
             res.status(500).json({ message: 'Server Error' });
         }
     }
+
+    async updateProductController(req, res) {
+        try {
+            console.log('req.bd >>> ', req.boby);
+            // await db.Product.update(
+            //     { ...req.body },
+            //     {
+            //         where: { id: req.boby.id },
+            //     },
+            // );
+            // if (req.body.listFile && Array.isArray(req.body.listFile)) {
+            //     await Promise.all(
+            //         req.body.listFile.map((fileUrl) =>
+            //             db.Image.create({
+            //                 url: fileUrl,
+            //                 productId: product.dataValues.id,
+            //             }),
+            //         ),
+            //     );
+            // }
+            // if (req.body.listOldFile && Array.isArray(req.body.listOldFile)) {
+            //     await Promise.all(
+            //         req.body.listOldFile.map((id) =>
+            //             db.Image.destroy({
+            //                 where: { id: id },
+            //             }),
+            //         ),
+            //     );
+            // }
+            // return res.status(200).json({
+            //     msg: 'Update thành công',
+            //     code: 0,
+            //     data: null,
+            // });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: 'Server Error' });
+        }
+    }
 }
 
 module.exports = new productController();

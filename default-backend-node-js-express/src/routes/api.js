@@ -8,6 +8,7 @@ const {
     createProductController,
     deleteProductController,
     getProductController,
+    updateProductController,
 } = require('../controllers/productController');
 const { createOrderController } = require('../controllers/orderController');
 
@@ -49,6 +50,7 @@ const initialApiApp = (app) => {
     Route.get('/product', getAllProductController);
     Route.get('/product/:id', getProductController);
     Route.post('/product', createProductController);
+    Route.put('/product', updateProductController);
     Route.delete('/product/:id', deleteProductController);
 
     //order

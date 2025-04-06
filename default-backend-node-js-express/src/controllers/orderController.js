@@ -25,7 +25,6 @@ class orderController {
                     data: null,
                 });
             }
-            console.log('product >>>> ', product);
             const order = await db.Order.create({
                 ...req.body,
                 totalPrice: product.dataValues.price,
